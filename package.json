@@ -1,0 +1,15 @@
+{
+  "name": "test-json-rpc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "go": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-json-rpc-router": "^0.2.0"
+  }
+}
