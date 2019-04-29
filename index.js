@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { appendFile } = require('fs')
+const { appendFile } = require('fs').promises
 const app = require('express')()
 const bodyParser = require('body-parser')
 const jsonRouter = require('../json-rpc')
@@ -42,14 +42,14 @@ const beforeController = {
 }
 
 const afterController = {
-    getUser({ id }, execResult) {
-        appendFile("users.log", formatData(execResult, id))
+    async getUser({ id }, execResult) {
+        await appendFile("users.log", formatData(execResult, id))
     },
-    getPost({ id }, execResult) {
-        appendFile("posts.log", formatData(execResult, id))
+    async getPost({ id }, execResult) {
+        await appendFile("posts.log", formatData(execResult, id))
     },
-    getPhoto({ id }, execResult) {
-        appendFile("photos.log", formatData(execResult, id))
+    async getPhoto({ id }, execResult) {
+        await appendFile("photos.log", formatData(execResult, id))
     }
 }
 
